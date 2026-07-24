@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [21.1.39]
 
+### Fixed
+
+- AE2 Wireless Terminals no longer show "out of range" when their Wireless Access Point is on an assembled airship. The range check measures player distance to the access point's live block position, which sits at the ship's far-away sub-level plot coordinates; the position is now transformed through the ship's pose into world space first. Covers the crafting terminal and addon portable terminals that share the same menu host. FTBTeam/FTB-Modpack-Issues#12831
+
 ### Removed
 
 - The Squat Grow airship mixin from 21.1.38: Squat Grow 21.1.4 ships native Sable support doing the same sub-level position transform, so the companion workaround is retired.

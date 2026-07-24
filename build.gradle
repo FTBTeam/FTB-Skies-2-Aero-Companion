@@ -159,6 +159,7 @@ dependencies {
 	compileOnly "curse.maven:sky-archipelago-1528077:8383558"
 	compileOnly "curse.maven:ftb-team-bases-1197857:8443296"
 	compileOnly "curse.maven:ftb-teams-404468:7878281"
+	compileOnly "curse.maven:applied-energistics-2-223794:7027323"
 	compileOnly "curse.maven:productivebees-377897:8022994"
 	compileOnly "maven.modrinth:enderio:v8.2.10-beta"
 }

@@ -14,6 +14,7 @@
     "FishingRodItemMixin",
     "ServerPlayerMixin",
     "TeleportPosShipMixin",
+    "compat.ae2.WirelessSignalSubLevelMixin",
     "compat.arsnouveau.RitualRegistryGeoreMixin",
     "compat.bitsnbobs.CogwheelChainBlockEntityMixin",
     "compat.bucketlib.BucketLibEnchantmentMixin",
