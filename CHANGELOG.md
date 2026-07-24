@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.39]
+
+### Removed
+
+- The Squat Grow airship mixin from 21.1.38: Squat Grow 21.1.4 ships native Sable support doing the same sub-level position transform, so the companion workaround is retired.
+
 ## [21.1.38]
 
 ### Fixed
