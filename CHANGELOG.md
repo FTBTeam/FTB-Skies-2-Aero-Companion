@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [21.1.41]
 
+### Changed
+
+- Team bases will now allocate in a ring spiral around spawn across all four quadrants instead of only east in a line. The worldgen exclusion grid around 0,0 is preserved, and on existing worlds there is now a `legacy_world_mode` config option (default on) that skips negative-quadrant slots whose terrain already generated without exclusion protection so bases are not pasted into existing islands. You can turn this off if you want to force islands to generate there. New world will be unimpacted.
+
 ### Fixed
 
 - Fixed lobby exclusion radius for base spawning to be higher

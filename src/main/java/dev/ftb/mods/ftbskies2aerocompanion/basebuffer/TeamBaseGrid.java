@@ -19,12 +19,15 @@ public final class TeamBaseGrid {
         return (max / stride) * stride;
     }
 
+    public static int maxGridIndex() {
+        return maxBaseRegionX() / strideX();
+    }
+
     public static boolean isBaseRegion(int regionX, int regionZ) {
-        if (regionX < 0 || regionZ < 0) return false;
         int sx = strideX();
         int sz = strideZ();
-        if (regionX > maxBaseRegionX()) return false;
-        return (regionX % sx) == 0 && (regionZ % sz) == 0;
+        if (Math.abs(regionX) > maxBaseRegionX() || Math.abs(regionZ) > maxBaseRegionX()) return false;
+        return Math.floorMod(regionX, sx) == 0 && Math.floorMod(regionZ, sz) == 0;
     }
 
     public static int[] baseRegionCenterBlocks(int regionX, int regionZ) {
@@ -58,10 +61,9 @@ public final class TeamBaseGrid {
             for (int db = 0; db <= 1; db++) {
                 int a = approxAX + da;
                 int b = approxAZ + db;
-                if (a < 0 || b < 0) continue;
                 int regionX = a * sx;
                 int regionZ = b * sz;
-                if (regionX > maxRX) continue;
+                if (Math.abs(regionX) > maxRX || Math.abs(regionZ) > maxRX) continue;
                 int cx = regionX * REGION_BLOCKS + halfSpan;
                 int cz = regionZ * REGION_BLOCKS + halfSpan;
                 long dx = blockX - cx;
@@ -74,14 +76,39 @@ public final class TeamBaseGrid {
         return false;
     }
 
+    public static int totalBaseSlots() {
+        int side = 2 * maxGridIndex() + 1;
+        return side * side;
+    }
+
     public static int[] nthBaseRegion(int index) {
         if (index < 0) throw new IllegalArgumentException("index must be >= 0");
         int sx = strideX();
         int sz = strideZ();
-        int maxRX = maxBaseRegionX();
-        int basesPerRow = (maxRX / sx) + 1;
-        int row = index / basesPerRow;
-        int col = index % basesPerRow;
-        return new int[] { col * sx, row * sz };
+        if (index == 0) return new int[] { 0, 0 };
+        int remaining = index - 1;
+        for (int k = 1; k <= maxGridIndex(); k++) {
+            int ringSize = 8 * k;
+            if (remaining >= ringSize) {
+                remaining -= ringSize;
+                continue;
+            }
+            int edge = 2 * k + 1;
+            if (remaining < edge) {
+                return new int[] { k * sx, (-k + remaining) * sz };
+            }
+            remaining -= edge;
+            if (remaining < edge) {
+                return new int[] { -k * sx, (-k + remaining) * sz };
+            }
+            remaining -= edge;
+            int inner = edge - 2;
+            if (remaining < inner) {
+                return new int[] { (-k + 1 + remaining) * sx, -k * sz };
+            }
+            remaining -= inner;
+            return new int[] { (-k + 1 + remaining) * sx, k * sz };
+        }
+        throw new IllegalArgumentException("index " + index + " exceeds the base grid bounds");
     }
 }
