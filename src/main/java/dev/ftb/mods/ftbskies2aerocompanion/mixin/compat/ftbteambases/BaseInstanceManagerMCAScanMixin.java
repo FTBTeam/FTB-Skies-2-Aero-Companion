@@ -1,5 +1,6 @@
 package dev.ftb.mods.ftbskies2aerocompanion.mixin.compat.ftbteambases;
 
+import dev.ftb.mods.ftbskies2aerocompanion.basebuffer.BaseExclusionConfig;
 import dev.ftb.mods.ftbteambases.data.bases.BaseInstanceManager;
 import dev.ftb.mods.ftbteambases.util.RegionCoords;
 import dev.ftb.mods.ftbteambases.util.RegionExtents;
@@ -25,6 +26,14 @@ public abstract class BaseInstanceManagerMCAScanMixin {
         int minZ = start.z();
         int maxX = minX + Math.max(1, size.x()) - 1;
         int maxZ = minZ + Math.max(1, size.z()) - 1;
+
+        int reserved = BaseExclusionConfig.SPAWN_RESERVED_RADIUS.get();
+        if (reserved > 0
+                && minX * 512 <= reserved && (maxX + 1) * 512 - 1 >= -reserved
+                && minZ * 512 <= reserved && (maxZ + 1) * 512 - 1 >= -reserved) {
+            cir.setReturnValue(true);
+            return;
+        }
 
         List<RegionExtents> occupied = new ArrayList<>();
         self.allLiveBases().values().forEach(base -> {
