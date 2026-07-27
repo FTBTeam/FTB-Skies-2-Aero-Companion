@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.42]
+
+### Removed
+
+- The FTB Team Bases spiral-placement mixin and its `spawn_reserved_radius_blocks`/`legacy_world_mode` config options: FTB Team Bases 21.1.17 merged our spiral allocator PR, so base placement (ring spiral, record-based slot occupancy, origin reservation via `base_min_dist_from_origin`, optional `avoid_generated_regions`) is now handled natively by the mod. The `resetbasegenpos` command is also retired since spiral mode no longer uses the stored generation pointer, and the now-unused ftb-team-bases/ftb-teams compile dependencies are dropped. The worldgen island exclusion grid and the `predictbases`/`checkexclusion` commands are unchanged.
+
 ## [21.1.41]
 
 ### Changed

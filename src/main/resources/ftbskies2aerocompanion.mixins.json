@@ -34,8 +34,6 @@
     "compat.enderio.RedstoneConduitMixin",
     "compat.excessiveutilities.DivisionSigilMidnightMixin",
     "compat.extendedindustrialization.SolarBoilerSteamMixin",
-    "compat.ftbteambases.BaseInstanceManagerAccessor",
-    "compat.ftbteambases.BaseInstanceManagerMCAScanMixin",
     "compat.functionalstorage.ControllerInventoryHandlerPerfMixin",
     "compat.functionalstorage.DrawerSlotSubLevelMixin",
     "compat.ironsspellbooks.ChainLightningNullVictimMixin",

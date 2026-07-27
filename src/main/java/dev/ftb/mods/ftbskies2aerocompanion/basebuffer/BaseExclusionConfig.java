@@ -11,8 +11,6 @@ public final class BaseExclusionConfig {
     public static final ModConfigSpec.IntValue BASE_SIZE_REGIONS;
     public static final ModConfigSpec.IntValue BASE_SEPARATION_REGIONS;
     public static final ModConfigSpec.IntValue MAX_REGION_X;
-    public static final ModConfigSpec.IntValue SPAWN_RESERVED_RADIUS;
-    public static final ModConfigSpec.BooleanValue LEGACY_WORLD_MODE;
     public static final ModConfigSpec.DoubleValue ISLAND_SPAWN_CHANCE;
     public static final ModConfigSpec.IntValue ISLAND_MIN_Y;
     public static final ModConfigSpec.IntValue ISLAND_MAX_Y;
@@ -30,12 +28,6 @@ public final class BaseExclusionConfig {
         BASE_SIZE_REGIONS = b.comment("Side length of a single base in 512-block regions. Must match FTB Team Bases base definition extents.x (default 1).").defineInRange("base_size_regions", 1, 1, 16);
         BASE_SEPARATION_REGIONS = b.comment("Clear regions between adjacent bases. Must match FTB Team Bases server config 'base_separation'.").defineInRange("base_separation_regions", 2, 0, 16);
         MAX_REGION_X = b.comment("Maximum region X before the allocator wraps to the next row. Mirrors BaseInstanceManager.MAX_REGION_X (default 2000).").defineInRange("max_region_x", 2000, 1, 1000000);
-        SPAWN_RESERVED_RADIUS = b.comment("Block radius around 0,0 reserved for the lobby. Base slots whose area intersects this square are never allocated to teams.").defineInRange("spawn_reserved_radius_blocks", 2048, 0, 65536);
-        LEGACY_WORLD_MODE = b.comment(
-                "When true, base slots touching negative X or Z are skipped if their terrain was already generated,",
-                "protecting islands that generated before the exclusion grid covered all four quadrants.",
-                "Worlds created with full-quadrant exclusion can set this to false for a pure spiral.")
-                .define("legacy_world_mode", true);
         b.pop();
         b.push("island_spawning");
         ISLAND_SPAWN_CHANCE = b.comment(
