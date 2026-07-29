@@ -4,6 +4,8 @@ import dev.ftb.mods.ftbskies2aerocompanion.FTBSkies2AeroCompanion;
 import dev.ftb.mods.ftbskies2aerocompanion.aeroscoop.ModBlockEntities;
 import dev.ftb.mods.ftbskies2aerocompanion.aeroscoop.client.AeroScoopBlockEntityRenderer;
 import dev.ftb.mods.ftbskies2aerocompanion.bucket.ModBucketComponents;
+import dev.ftb.mods.ftbskies2aerocompanion.compat.elevatorid.ShipElevators;
+import dev.ftb.mods.ftbskies2aerocompanion.compat.elevatorid.client.ShipElevatorClientHandler;
 import dev.ftb.mods.ftbskies2aerocompanion.item.ModItems;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -15,6 +17,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.fluids.SimpleFluidContent;
 
 public final class ClientBootstrap {
@@ -25,6 +28,9 @@ public final class ClientBootstrap {
         eventBus.addListener(ClientBootstrap::onRegisterRenderers);
         if (ModList.get().isLoaded("create")) {
             AeroScoopPonderBoot.register();
+        }
+        if (ModList.get().isLoaded(ShipElevators.MOD_ID)) {
+            NeoForge.EVENT_BUS.addListener(ShipElevatorClientHandler::onClientTick);
         }
     }
 

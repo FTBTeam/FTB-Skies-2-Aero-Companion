@@ -21,6 +21,11 @@ public final class ModPayloads {
                 SyncVoidFishingDropsPayload.STREAM_CODEC,
                 ClientPayloadHandler::handleSyncVoidFishingDrops
         );
+        registrar.playToServer(
+                ShipElevatorTeleportPayload.TYPE,
+                ShipElevatorTeleportPayload.STREAM_CODEC,
+                ServerPayloadHandler::handleShipElevatorTeleport
+        );
     }
 
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
