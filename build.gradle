@@ -160,6 +160,7 @@ dependencies {
 	compileOnly "curse.maven:applied-energistics-2-223794:7027323"
 	compileOnly "curse.maven:productivebees-377897:8022994"
 	compileOnly "maven.modrinth:enderio:v8.2.10-beta"
+	compileOnly "curse.maven:create-nuclear-989797:7329038"
 }
 
 tasks.register("sourcesJar", Jar) {

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.44]
+
+### Fixed
+
+- Create Nuclear reactors kept providing SU forever once their rods ran out: the controller only stops the reactor output on burn completion or overheat, never when the input slots empty (FTBTeam/FTB-Modpack-Issues#12918, Giovanniricotta2002/CreateNuclearForge#66).
+
 ## [21.1.43]
 
 ### Added

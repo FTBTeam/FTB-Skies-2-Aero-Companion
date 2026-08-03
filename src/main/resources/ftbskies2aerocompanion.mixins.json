@@ -25,6 +25,7 @@
     "compat.create.AllSoundEventsPrepareMixin",
     "compat.create.SmartBlockEntityVoidGuardMixin",
     "compat.create.RedstoneLinkSubLevelNetworkMixin",
+    "compat.createnuclear.ReactorControllerStarvedShutdownMixin",
     "compat.createnewage.BlockEntityTypeMixin",
     "compat.createnewage.EnergiserBlockEntityMixin",
     "compat.createnewage.EnergiserBlockMixin",
