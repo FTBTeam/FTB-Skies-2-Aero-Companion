@@ -21,6 +21,8 @@
     "compat.chancecubes.RewardsUtilFluidSphereMixin",
     "compat.cognition.ProtectionSalveItemMixin",
     "compat.craftingstationjei.CraftingStationDropGuardMixin",
+    "compat.compactcrafting.ActiveWorldFieldsNearbyMixin",
+    "compat.compactcrafting.FieldHelperBlockScanMixin",
     "compat.compactmachines.RoomHelperCaptureMixin",
     "compat.create.AllSoundEventsPrepareMixin",
     "compat.create.SmartBlockEntityVoidGuardMixin",

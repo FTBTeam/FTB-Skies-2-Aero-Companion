@@ -161,6 +161,7 @@ dependencies {
 	compileOnly "curse.maven:productivebees-377897:8022994"
 	compileOnly "maven.modrinth:enderio:v8.2.10-beta"
 	compileOnly "curse.maven:create-nuclear-989797:7329038"
+	compileOnly "curse.maven:compact-crafting-1355698:7077089"
 }
 
 tasks.register("sourcesJar", Jar) {

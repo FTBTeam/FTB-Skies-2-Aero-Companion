@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.45]
+
+### Fixed
+
+- Compact Crafting scanned a 25x25x25 cube of block states for field projectors on every block place and break in any dimension, spiking tick times whenever Building Gadgets, block breakers or RFTools builders touched many blocks at once. Block changes with no miniaturization field near them now skip the scan (FTBTeam/FTB-Modpack-Issues#13033, CompactMods/CompactCrafting#71).
+
 ## [21.1.44]
 
 ### Fixed
