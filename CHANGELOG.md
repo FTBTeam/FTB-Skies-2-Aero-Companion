@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Sifters duplicated their mesh and the rest of their inventory when a ship was assembled or disassembled. The drop is now suppressed while a sub-level move is running, the same guard the crafting station already uses (FTBTeam/FTB-Modpack-Issues#12995).
 
+- Industrialist villagers could offer the un-unified MI steel ingot, and the same for tin, bronze, copper gears, sulfur dust, bronze gears, steel gears and steel plates. Our villager trade handler ran at default priority, which put it ahead of Modern Industrialization's own listener, so the removals matched an empty list and only the additions took effect, leaving both versions of each trade in the pool for villagers to roll from. The handler now runs at `LOWEST` (FTBTeam/FTB-Modpack-Issues#13009).
+
+- Item Drains, and container blocks generally, duplicated their contents when a ship was assembled or disassembled. 118+ block classes across ~50 mods drop their inventory in `onRemove` without honouring the `isMoving` flag, so the contents both dropped at the old position and travelled with the block. Instead of patching each one, `Containers.dropItemStack` and `Block.popResource` are now suppressed for the duration of a sub-level move, which every one of those paths funnels through. Notable blocks this covers: Create Item Vaults and Mechanical Crafters, Create Propulsion solid fuel thrusters and burners, Create Connected item silos, FTB Stuff sluices and tempered jars, Farmer's Delight cabinets/baskets/cooking pots, and all copycat blocks (FTBTeam/FTB-Modpack-Issues#12999).
+
 ## [21.1.44]
 
 ### Fixed

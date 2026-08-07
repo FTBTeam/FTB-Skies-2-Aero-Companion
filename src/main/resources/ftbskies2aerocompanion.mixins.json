@@ -4,6 +4,8 @@
   "package": "dev.ftb.mods.ftbskies2aerocompanion.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BlockPopResourceGuardMixin",
+    "ContainersDropGuardMixin",
     "EntityCollisionGuardMixin",
     "HandleMoveVehicleBoundingBoxMixin",
     "InvalidBlockEntityLoadGuardMixin",
