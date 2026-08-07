@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Compact Crafting scanned a 25x25x25 cube of block states for field projectors on every block place and break in any dimension, spiking tick times whenever Building Gadgets, block breakers or RFTools builders touched many blocks at once. Block changes with no miniaturization field near them now skip the scan (FTBTeam/FTB-Modpack-Issues#13033, CompactMods/CompactCrafting#71).
+- Compact Crafting scanned a 25x25x25 cube of block states for field projectors on every block place and break in any dimension, spiking tick times whenever Building Gadgets, block breakers or RFTools builders touched many blocks at once. We now block changes with no miniaturization field near them and skip the scan (FTBTeam/FTB-Modpack-Issues#13033, CompactMods/CompactCrafting#71).
+
+- Sifters duplicated their mesh and the rest of their inventory when a ship was assembled or disassembled. The drop is now suppressed while a sub-level move is running, the same guard the crafting station already uses (FTBTeam/FTB-Modpack-Issues#12995).
 
 ## [21.1.44]
 

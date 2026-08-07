@@ -21,6 +21,7 @@
     "compat.chancecubes.RewardsUtilFluidSphereMixin",
     "compat.cognition.ProtectionSalveItemMixin",
     "compat.craftingstationjei.CraftingStationDropGuardMixin",
+    "compat.createsifter.AbstractSifterBlockDropGuardMixin",
     "compat.compactcrafting.ActiveWorldFieldsNearbyMixin",
     "compat.compactcrafting.FieldHelperBlockScanMixin",
     "compat.compactmachines.RoomHelperCaptureMixin",
