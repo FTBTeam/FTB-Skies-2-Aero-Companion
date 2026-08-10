@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [21.1.46]
 
+### Added
+
+- New PT_BR Translations thanks to PrincessStellar!
+
 ### Fixed
 
 - Assembling a Dyson Cube Project multiblock onto an airship no longer crashes the game, and no longer keeps crashing every time you load the world afterwards. The multiblock still does not run while on a ship, which is up to the mod author (FTBTeam/FTB-Modpack-Issues#12421, InnovativeOnlineIndustries/Dyson-Cube-Project#35).
