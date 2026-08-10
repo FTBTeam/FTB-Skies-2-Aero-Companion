@@ -37,6 +37,7 @@
     "compat.createnewage.ImplementedMagnetBlockTooltipMixin",
     "compat.createnewage.WireTypeInvoker",
     "compat.createnewage.WireTypeMixin",
+    "compat.dysoncubeproject.MultiblockStructureShapeGuardMixin",
     "compat.enderio.RedstoneConduitMixin",
     "compat.extendedindustrialization.SolarBoilerSteamMixin",
     "compat.functionalstorage.ControllerInventoryHandlerPerfMixin",
