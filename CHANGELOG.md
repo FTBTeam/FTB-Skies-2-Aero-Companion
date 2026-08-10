@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Being kicked from the world with a "Failed to decode packet" error when a Sophisticated Backpack, storage block, mounted storage or moving storage held too much to fit in one packet. Same fix applied to all four (FTBTeam/FTB-Modpack-Issues#12996).
+
 - Assembling a Dyson Cube Project multiblock onto an airship no longer crashes the game, and no longer keeps crashing every time you load the world afterwards. The multiblock still does not run while on a ship, which is up to the mod author (FTBTeam/FTB-Modpack-Issues#12421, InnovativeOnlineIndustries/Dyson-Cube-Project#35).
 
 ## [21.1.45]
