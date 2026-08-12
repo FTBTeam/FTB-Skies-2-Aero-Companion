@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public class ShipHomeData extends SavedData {
@@ -100,6 +101,26 @@ public class ShipHomeData extends SavedData {
             setDirty();
         }
         return count[0];
+    }
+
+    public int remapBindings(Predicate<ShipBinding> filter, UnaryOperator<ShipBinding> updater) {
+        int[] count = {0};
+        bedBindings.replaceAll((k, b) -> remapIfMatch(filter, b, updater, count));
+        homeBindings.values().forEach(m -> m.replaceAll((k, b) -> remapIfMatch(filter, b, updater, count)));
+        warpBindings.replaceAll((k, b) -> remapIfMatch(filter, b, updater, count));
+        compactReturnBindings.replaceAll((k, b) -> remapIfMatch(filter, b, updater, count));
+        if (count[0] > 0) {
+            setDirty();
+        }
+        return count[0];
+    }
+
+    private static ShipBinding remapIfMatch(Predicate<ShipBinding> filter, ShipBinding b, UnaryOperator<ShipBinding> updater, int[] count) {
+        if (b != null && filter.test(b)) {
+            count[0]++;
+            return updater.apply(b);
+        }
+        return b;
     }
 
     private static ShipBinding remapIfMatch(UUID shipUuid, ShipBinding b, UnaryOperator<ShipBinding> updater, int[] count) {

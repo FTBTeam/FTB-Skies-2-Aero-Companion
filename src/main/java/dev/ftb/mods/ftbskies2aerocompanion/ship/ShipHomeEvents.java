@@ -1,6 +1,7 @@
 package dev.ftb.mods.ftbskies2aerocompanion.ship;
 
 import dev.ftb.mods.ftbskies2aerocompanion.FTBSkies2AeroCompanion;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -10,6 +11,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerRespawnPositionEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.server.ServerStoppedEvent;
 import org.slf4j.Logger;
@@ -37,6 +39,20 @@ public final class ShipHomeEvents {
     public static void onServerStopped(ServerStoppedEvent event) {
         ShipHomeData.setActiveServer(null);
         VANILLA_RESPAWN.clear();
+    }
+
+    @SubscribeEvent
+    public static void onLevelLoad(LevelEvent.Load event) {
+        if (!(event.getLevel() instanceof ServerLevel level)) return;
+        try {
+            SubLevelContainer container = SubLevelContainer.getContainer(level);
+            if (container != null) {
+                container.addObserver(new ShipHomeSubLevelObserver(level));
+            }
+        } catch (Throwable t) {
+            LOGGER.error("[assemble] failed to attach ship-home sub-level observer to {}",
+                    level.dimension().location(), t);
+        }
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

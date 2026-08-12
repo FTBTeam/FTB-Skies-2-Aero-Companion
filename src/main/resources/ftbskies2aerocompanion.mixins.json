@@ -61,6 +61,7 @@
     "compat.sable.SubLevelAssemblyHelperCableNetworkMixin",
     "compat.sable.SubLevelAssemblyHelperMoveGuardMixin",
     "compat.sable.SubLevelPlayerChunkSenderMixin",
+    "compat.sable.PlayerFreezeHoldMixin",
     "compat.oritech.EnchantmentCatalystLevelCapMixin",
     "compat.mi.MISteamHelperMixin",
     "compat.mi.MISteamHeaterComponentMixin",
@@ -75,7 +76,8 @@
     "compat.simulated.SimAssemblyHelperFrameFlagMixin",
     "compat.simulated.SimAssemblyHelperShipHomeMixin",
     "compat.sophisticatedcore.ContentsPayloadSizeMixin",
-    "compat.titanium.TileEntityLocatorSubLevelMixin"
+    "compat.titanium.TileEntityLocatorSubLevelMixin",
+    "compat.titanium.NetworkElementPlotGuardMixin"
   ],
   "client": [
     "client.FishingHookRendererMixin",

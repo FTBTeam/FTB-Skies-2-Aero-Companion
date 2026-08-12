@@ -4,6 +4,7 @@ import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import dev.ryanhcode.sable.Sable;
 import dev.ryanhcode.sable.api.sublevel.ServerSubLevelContainer;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.companion.math.BoundingBox3dc;
 import dev.ryanhcode.sable.companion.math.Pose3dc;
 import dev.ryanhcode.sable.sublevel.SubLevel;
 import dev.ryanhcode.sable.sublevel.storage.HoldingSubLevel;
@@ -164,6 +165,33 @@ public final class ShipBindings {
         });
         if (updated > 0) {
             LOGGER.debug("[disassemble] grounded {} ship-home binding(s) for sub-level {}", updated, id);
+        }
+    }
+
+    public static void onSubLevelAssembled(MinecraftServer server, SubLevel subLevel) {
+        if (server == null || subLevel == null) return;
+        UUID id = subLevel.getUniqueId();
+        Pose3dc pose;
+        BoundingBox3dc bounds;
+        try {
+            pose = subLevel.logicalPose();
+            bounds = subLevel.boundingBox();
+        } catch (Throwable t) {
+            LOGGER.error("[assemble] failed to read pose or bounds for sub-level {}", id, t);
+            return;
+        }
+        if (bounds == null) return;
+
+        float subYawNow = (float) yawFromOrientation(pose.orientation());
+        ShipHomeData data = ShipHomeData.get(server);
+        int updated = data.remapBindings(
+                b -> b.grounded() && !id.equals(b.shipUuid()) && bounds.contains(
+                        b.lastKnownPos().x, b.lastKnownPos().y, b.lastKnownPos().z),
+                b -> new ShipBinding(id, b.shipDimension(),
+                        pose.transformPositionInverse(b.lastKnownPos()),
+                        b.yaw() - subYawNow, b.pitch(), b.lastKnownPos(), false));
+        if (updated > 0) {
+            LOGGER.debug("[assemble] rebound {} grounded ship-home binding(s) to sub-level {}", updated, id);
         }
     }
 

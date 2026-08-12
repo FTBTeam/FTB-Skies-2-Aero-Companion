@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.47]
+
+### Fixed
+
+- Logging back into a world while standing on an airship sometimes dropped you into the void. (FTBTeam/FTB-Modpack-Issues#13052).
+
+- A world with a Replication or other Titanium machine network on an airship crashed the server on every load with "Cannot change blocks in nonexistent plot holder". The network told the world to redraw blocks belonging to a ship that had not loaded yet. Those redraws are now skipped until the ship is back (FTBTeam/FTB-Modpack-Issues#13061).
+
+- `/home` and `/warp` set on an airship pointed at the spot where the ship was last parked, not at the ship, once it was flown again. Homes captured on a ship that gets taken apart are pinned to that spot, and were never picked back up when the ship was reassembled. They now reattach to the ship as soon as it is put back together (FTBTeam/FTB-Modpack-Issues#13052).
+
 ## [21.1.46]
 
 ### Added
