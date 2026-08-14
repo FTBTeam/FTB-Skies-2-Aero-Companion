@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Pathfinding Ai memleak across sable sublevels
 
+- Teleporting to a waystone on an airship sometimes failed with "The destination is outside the world bounds" after the ship's chunks unloaded. Sable only looked for the stored ship at its last-saved position; it is now found wherever it is actually held (FTBTeam/FTB-Modpack-Issues#13136).
+
+- Hitting an ownerless Midnight Mantle constellation star while wearing Fargo's Cactus Talisman crashed the server. The star's death blast and the talisman's damage reflection kept hurting each other in an endless loop (FTBTeam/FTB-Modpack-Issues#13138).
+
 ## [21.1.47]
 
 ### Fixed
