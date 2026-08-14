@@ -17,6 +17,8 @@
     "ServerPlayerMixin",
     "TeleportPosShipMixin",
     "compat.ae2.WirelessSignalSubLevelMixin",
+    "compat.arsnouveau.AdvancedNavigateMoveAwayMixin",
+    "compat.arsnouveau.PathJobChunkCacheBoundsMixin",
     "compat.arsnouveau.RitualRegistryGeoreMixin",
     "compat.bitsnbobs.CogwheelChainBlockEntityMixin",
     "compat.bucketlib.BucketLibEnchantmentMixin",
