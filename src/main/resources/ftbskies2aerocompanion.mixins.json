@@ -67,6 +67,7 @@
     "compat.sable.SubLevelHoldingChunkInvoker",
     "compat.sable.SubLevelSnatchAndLoadMixin",
     "compat.sable.PlayerFreezeHoldMixin",
+    "compat.sable.RapierPipelineFreedBodyPoseMixin",
     "compat.oritech.EnchantmentCatalystLevelCapMixin",
     "compat.mi.MISteamHelperMixin",
     "compat.mi.MISteamHeaterComponentMixin",
