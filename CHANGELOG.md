@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Game closing with no crash report when an airship unloaded (FTBTeam/FTB-Modpack-Issues#13144, FTBTeam/FTB-Modpack-Issues#13095).
 
+- Game crashing after firing a rope at terrain instead of at another rope block (FTBTeam/FTB-Modpack-Issues#13146).
+
 - Pathfinding Ai memleak across sable sublevels
 
 - Teleporting to a waystone on an airship sometimes failed with "The destination is outside the world bounds" after the ship's chunks unloaded. Sable only looked for the stored ship at its last-saved position; it is now found wherever it is actually held (FTBTeam/FTB-Modpack-Issues#13136).

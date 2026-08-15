@@ -81,6 +81,7 @@
     "compat.simulated.SimAssemblyHelperDisassembleMixin",
     "compat.simulated.SimAssemblyHelperFrameFlagMixin",
     "compat.simulated.SimAssemblyHelperShipHomeMixin",
+    "compat.simulated.RopeStrandConnectionDependencyMixin",
     "compat.sophisticatedcore.ContentsPayloadSizeMixin",
     "compat.titanium.TileEntityLocatorSubLevelMixin",
     "compat.titanium.NetworkElementPlotGuardMixin"
