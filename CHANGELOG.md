@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.49]
+
+### Fixed
+
+- Game closing with no crash report when an airship unloaded (FTBTeam/FTB-Modpack-Issues#13144, FTBTeam/FTB-Modpack-Issues#13095).
+
+- Game crashing after firing a rope at terrain instead of at another rope block (FTBTeam/FTB-Modpack-Issues#13146).
+
 ## [21.1.48]
 
 ### Fixed
