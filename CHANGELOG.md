@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.50]
+
+### Fixed
+
+- Leaving a world hanging forever on "Saving worlds" when an airship was force-loaded by a Contraption Claim Block (FTBTeam/FTB-Modpack-Issues#13159, Leclowndu93150/Create-Aeronautics-FTB-Chunks#2).
+
+- Server crashing on load with an ars_sable NPE when an airship was force-loaded (FTBTeam/FTB-Modpack-Issues#13159, baileyholl/ars-sable#3).
+
+- Players teleported into airship storage space, around x/z 20,480,000, are now moved back onto the ship on dimension change, respawn or login (FTBTeam/FTB-Modpack-Issues#13176).
+
+- Framerate dropping to a crawl when viewing a JEI recipe with a large tag ingredient, such as the EnderIO Soul Vial, while an AE2 terminal is open (FTBTeam/FTB-Modpack-Issues#13169).
+
 ## [21.1.49]
 
 ### Fixed
