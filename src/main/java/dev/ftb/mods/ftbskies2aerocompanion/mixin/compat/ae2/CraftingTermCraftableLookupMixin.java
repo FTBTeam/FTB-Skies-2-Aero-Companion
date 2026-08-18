@@ -4,10 +4,10 @@ import appeng.api.stacks.AEItemKey;
 import appeng.api.stacks.AEKey;
 import appeng.menu.me.common.GridInventoryEntry;
 import appeng.menu.me.common.IClientRepo;
+import appeng.menu.me.common.MEStorageMenu;
 import appeng.menu.me.items.CraftingTermMenu;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,9 +21,6 @@ public abstract class CraftingTermCraftableLookupMixin {
 
     @Unique
     private static final long ftbskies2aero$CACHE_NANOS = 50_000_000L;
-
-    @Shadow
-    public abstract IClientRepo getClientRepo();
 
     @Unique
     private Set<AEKey> ftbskies2aero$craftableKeys;
@@ -42,7 +39,7 @@ public abstract class CraftingTermCraftableLookupMixin {
         }
         IClientRepo repo;
         try {
-            repo = getClientRepo();
+            repo = ((MEStorageMenu) (Object) this).getClientRepo();
         } catch (Throwable ignored) {
             return;
         }
