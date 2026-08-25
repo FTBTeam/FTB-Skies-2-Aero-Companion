@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Hard crash with no crash report when a sub-level carrying a powered AE2 crafting CPU or several ME Controllers unloaded (FTBTeam/FTB-Modpack-Issues#13184, FTBTeam/FTB-Modpack-Issues#13250). Sable frees the rapier body before tearing down the plot but only marks the sub-level removed afterwards, so block changes emitted during teardown reached a freed native body and aborted the process.
+- Hard crash with no crash report when a sub-level carrying a powered AE2 crafting CPU or several ME Controllers unloaded (FTBTeam/FTB-Modpack-Issues#13184, FTBTeam/FTB-Modpack-Issues#13250). Sable frees the rapier body before tearing down the plot but only marks the sub-level removed afterwards
 
 ### Removed
 
