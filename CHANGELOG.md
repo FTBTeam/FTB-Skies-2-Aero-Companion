@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.52]
+
+### Fixed
+
+- Hard crash with no crash report when a sub-level carrying a powered AE2 crafting CPU or several ME Controllers unloaded (FTBTeam/FTB-Modpack-Issues#13184, FTBTeam/FTB-Modpack-Issues#13250). Sable frees the rapier body before tearing down the plot but only marks the sub-level removed afterwards, so block changes emitted during teardown reached a freed native body and aborted the process.
+
+### Removed
+
+- Functional Storage drawer slot and Titanium locator sub-level mixins, now handled natively by Functional Storage: Create & Aero.
+
 ## [21.1.51]
 
 ### Fixed

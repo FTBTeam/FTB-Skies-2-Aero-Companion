@@ -1,5 +1,6 @@
 package dev.ftb.mods.ftbskies2aerocompanion.mixin.compat.sable;
 
+import dev.ftb.mods.ftbskies2aerocompanion.compat.sable.ActiveBodyTracker;
 import dev.ryanhcode.sable.companion.math.Pose3d;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -11,9 +12,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(targets = "dev.ryanhcode.sable.physics.impl.rapier.RapierPhysicsPipeline", remap = false)
-public abstract class RapierPipelineFreedBodyPoseMixin {
+public abstract class RapierPipelineFreedBodyPoseMixin implements ActiveBodyTracker {
 
     @Shadow @Final private Int2ObjectMap<ServerSubLevel> activeSubLevels;
+
+    @Override
+    public boolean ftbskies2aero$hasActiveBody(int runtimeId) {
+        return this.activeSubLevels.containsKey(runtimeId);
+    }
 
     @Inject(method = "readPose", at = @At("HEAD"), cancellable = true)
     private void ftbskies2aero$skipFreedBody(ServerSubLevel subLevel, Pose3d destination, CallbackInfoReturnable<Pose3d> cir) {
