@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.53]
+
+### Added
+
+- Nether and End air pressure now hold steady from the floor to the build limit instead of thinning out to nothing near the top. An airship trimmed to fly level in the overworld keeps its lift when it comes through a portal, instead of arriving high up with a third of the lift it needs and sinking away into the void with nobody aboard to fly it back up. Flying near the top of either dimension now works the same as flying low in it.
+
 ## [21.1.52]
 
 ### Fixed

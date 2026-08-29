@@ -1,0 +1,11 @@
+{
+  "dimension": "minecraft:the_nether",
+  "priority": 2000,
+  "base_pressure": 1.0,
+  "pressure_function": [
+    { "altitude": 0.0, "value": 1.05, "slope": -0.00156 },
+    { "altitude": 32.0, "value": 1.0, "slope": -0.00123 },
+    { "altitude": 88.0, "value": 0.95, "slope": -0.00107 },
+    { "altitude": 128.0, "value": 0.9, "slope": -0.00125 }
+  ]
+}
