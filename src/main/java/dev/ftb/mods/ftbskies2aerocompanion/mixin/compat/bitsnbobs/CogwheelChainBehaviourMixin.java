@@ -6,17 +6,21 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(targets = "com.kipti.bnb.content.cogwheel_chain.block.CogwheelChainBlockEntity", remap = false)
-public abstract class CogwheelChainBlockEntityMixin {
+@Mixin(targets = "com.kipti.bnb.content.kinetics.cogwheel_chain.behaviour.CogwheelChainBehaviour", remap = false)
+public abstract class CogwheelChainBehaviourMixin {
 
     @Unique
     private static final ThreadLocal<int[]> ftbskies2aero$lazyTickDepth = ThreadLocal.withInitial(() -> new int[1]);
+
+    @Shadow
+    public abstract BlockEntity getBlockEntity();
 
     @Inject(method = "lazyTick", at = @At("HEAD"), remap = false)
     private void ftbskies2aero$beginLazyTick(CallbackInfo ci) {
@@ -32,8 +36,11 @@ public abstract class CogwheelChainBlockEntityMixin {
     }
 
     @Inject(method = "destroyChain", at = @At("HEAD"), cancellable = true, remap = false)
-    private void ftbskies2aero$suppressSpuriousChainRefund(boolean drop, CallbackInfoReturnable<ItemStack> cir) {
-        BlockEntity self = (BlockEntity) (Object) this;
+    private void ftbskies2aero$suppressSpuriousChainRefund(boolean drop, boolean destroyBlocks, CallbackInfoReturnable<ItemStack> cir) {
+        BlockEntity self = getBlockEntity();
+        if (self == null) {
+            return;
+        }
         Level level = self.getLevel();
         if (level == null || level.isClientSide) {
             return;

@@ -22,7 +22,7 @@
     "compat.arsnouveau.AdvancedNavigateMoveAwayMixin",
     "compat.arsnouveau.PathJobChunkCacheBoundsMixin",
     "compat.arsnouveau.RitualRegistryGeoreMixin",
-    "compat.bitsnbobs.CogwheelChainBlockEntityMixin",
+    "compat.bitsnbobs.CogwheelChainBehaviourMixin",
     "compat.bucketlib.BucketLibEnchantmentMixin",
     "compat.chancecubes.RewardsUtilFluidSphereMixin",
     "compat.cognition.ProtectionSalveItemMixin",
