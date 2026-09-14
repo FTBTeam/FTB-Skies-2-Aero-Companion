@@ -2,6 +2,7 @@ package dev.ftb.mods.ftbskies2aerocompanion.mixin.compat.sable;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.logging.LogUtils;
+import dev.ftb.mods.ftbskies2aerocompanion.compat.integrateddynamics.IntegratedDynamicsMovedBlocks;
 import dev.ftb.mods.ftbskies2aerocompanion.compat.integrateddynamics.IntegratedDynamicsNetworkReform;
 import dev.ryanhcode.sable.api.SubLevelAssemblyHelper;
 import dev.ryanhcode.sable.companion.math.BoundingBox3ic;
@@ -58,6 +59,16 @@ public abstract class SubLevelAssemblyHelperCableNetworkMixin {
     @Inject(method = "moveBlocks", at = @At("RETURN"))
     private static void ftbskies2aero$endCableMove(ServerLevel level, SubLevelAssemblyHelper.AssemblyTransform transform, Iterable<BlockPos> blocks, CallbackInfo ci) {
         CableHelpers.setRemovingCable(false);
+        if (!IntegratedDynamicsMovedBlocks.isCapturing()) {
+            return;
+        }
+        try {
+            for (BlockPos block : blocks) {
+                IntegratedDynamicsMovedBlocks.record(transform.apply(block));
+            }
+        } catch (Throwable t) {
+            LOGGER.error("Failed to record relocated blocks for IntegratedDynamics network reform", t);
+        }
     }
 
     @Inject(method = "assembleBlocks", at = @At("RETURN"))
