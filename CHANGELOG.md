@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.57]
+
+### Fixed
+
+- updated Tropicraft random-source mixin. The mixin now targets `Level`, where `random` is declared, and only replaces it for server-side Tropics levels.
+
 ## [21.1.56]
 
 ### Fixed
