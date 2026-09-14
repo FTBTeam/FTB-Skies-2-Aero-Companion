@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Server running out of memory and hanging when a Gadgets and Gizmos Aileron Bearing assembly was taken apart. The IntegratedDynamics network reform walked the sub-level plot's bounding box, and a plot with no loaded chunk bounds reports the empty box, `Integer.MAX_VALUE` down to `Integer.MIN_VALUE` on every axis. Disassembly now reforms over the blocks that actually moved, and the box overload rejects empty and oversized regions (FTBTeam/FTB-Modpack-Issues#13285).
+- Server crash while exploring the Tropics (FTBTeam/FTB-Modpack-Issues#13302).
 
 ## [21.1.55]
 

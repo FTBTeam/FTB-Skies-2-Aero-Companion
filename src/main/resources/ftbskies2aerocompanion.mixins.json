@@ -9,6 +9,7 @@
     "EntityCollisionGuardMixin",
     "HandleMoveVehicleBoundingBoxMixin",
     "InvalidBlockEntityLoadGuardMixin",
+    "TropicraftRandomThreadSafeMixin",
     "MappedRegistryByIdGuardMixin",
     "StructurePlacementIslandExclusionMixin",
     "StructureStartPlaceGuardMixin",
