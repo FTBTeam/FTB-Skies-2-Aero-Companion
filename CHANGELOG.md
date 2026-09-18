@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Create Sifters on an assembled airship not accepting items dropped onto them (FTBTeam/FTB-Modpack-Issues#13403).
 - updated Tropicraft random-source mixin. The mixin now targets `Level`, where `random` is declared, and only replaces it for server-side Tropics levels.
 
 ## [21.1.56]

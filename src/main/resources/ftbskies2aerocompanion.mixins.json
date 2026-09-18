@@ -29,6 +29,7 @@
     "compat.cognition.ProtectionSalveItemMixin",
     "compat.craftingstationjei.CraftingStationDropGuardMixin",
     "compat.createsifter.AbstractSifterBlockDropGuardMixin",
+    "compat.createsifter.AbstractSifterBlockSubLevelFallOnMixin",
     "compat.compactcrafting.ActiveWorldFieldsNearbyMixin",
     "compat.compactcrafting.FieldHelperBlockScanMixin",
     "compat.compactmachines.RoomHelperCaptureMixin",
