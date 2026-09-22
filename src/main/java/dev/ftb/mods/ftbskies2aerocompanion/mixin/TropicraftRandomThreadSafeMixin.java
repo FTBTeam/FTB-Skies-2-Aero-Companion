@@ -1,6 +1,8 @@
 package dev.ftb.mods.ftbskies2aerocompanion.mixin;
 
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Final;
@@ -22,15 +24,15 @@ public class TropicraftRandomThreadSafeMixin {
     @Mutable
     public RandomSource random;
 
-    @Shadow
-    @Final
-    public boolean isClientSide;
-
     @SuppressWarnings("deprecation")
     @Inject(method = "<init>", at = @At("TAIL"))
     private void ftbskies2aero$threadSafeTropicraftRandom(CallbackInfo ci) {
         Level level = (Level) (Object) this;
-        if (!isClientSide && level.dimension().location().equals(TROPICS)) {
+        if (!(level instanceof ServerLevel)) {
+            return;
+        }
+        ResourceKey<Level> dimension = level.dimension();
+        if (dimension != null && TROPICS.equals(dimension.location())) {
             this.random = RandomSource.createThreadSafe();
         }
     }
