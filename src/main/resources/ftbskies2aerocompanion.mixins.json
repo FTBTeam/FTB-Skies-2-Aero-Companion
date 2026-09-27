@@ -46,6 +46,8 @@
     "compat.dysoncubeproject.MultiblockStructureShapeGuardMixin",
     "compat.enderio.RedstoneConduitMixin",
     "compat.extendedindustrialization.SolarBoilerSteamMixin",
+    "compat.extendedindustrialization.BreweryBlazingEssenceMixin",
+    "compat.extendedindustrialization.BrewerySlotFluidMixin",
     "compat.functionalstorage.ControllerInventoryHandlerPerfMixin",
     "compat.ironsspellbooks.ChainLightningNullVictimMixin",
     "compat.integrateddynamics.BlockEntityCableConnectableInventoryMixin",
