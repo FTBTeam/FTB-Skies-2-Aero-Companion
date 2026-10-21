@@ -1,0 +1,11 @@
+{
+  "dimension": "minecraft:the_end",
+  "priority": 2000,
+  "base_pressure": 1.0,
+  "pressure_function": [
+    { "altitude": 0.0, "value": 1.05, "slope": -0.00078 },
+    { "altitude": 64.0, "value": 1.0, "slope": -0.00065 },
+    { "altitude": 160.0, "value": 0.95, "slope": -0.00052 },
+    { "altitude": 256.0, "value": 0.9, "slope": -0.00052 }
+  ]
+}

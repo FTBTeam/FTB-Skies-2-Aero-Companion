@@ -5,6 +5,85 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [21.1.60]
+
+### Fixed
+
+- Client crash ("Accessing LegacyRandomSource from multiple threads") when firing the Oritech Enderic Railgun. Its staggered laser particles were spawned from a background thread and are now spawned on the render thread (FTBTeam/FTB-Modpack-Issues#13546).
+- Mahogany saplings growing into palm trees, and grown mahogany trees never dropping saplings. The sapling now only grows mahogany trees, and mahogany trees use mahogany leaves instead of kapok leaves (FTBTeam/FTB-Modpack-Issues#13318).
+- MoreRed red alloy wire not connecting to Create Redstone Links on the same face (FTBTeam/FTB-Modpack-Issues#13213).
+
+## [21.1.59]
+
+### Fixed
+
+- Client crash when hovering an item with a Ponder scene. The Tropicraft random-source mixin ran on Ponder's throwaway wrapper levels, which have no dimension key, and now only runs on real server levels.
+
+## [21.1.58]
+
+### Fixed
+
+- Create Sifters on an assembled airship not accepting items dropped onto them (FTBTeam/FTB-Modpack-Issues#13403).
+
+## [21.1.57]
+
+### Fixed
+
+- updated Tropicraft random-source mixin. The mixin now targets `Level`, where `random` is declared, and only replaces it for server-side Tropics levels.
+
+## [21.1.56]
+
+### Fixed
+
+- Server running out of memory and hanging when a Gadgets and Gizmos Aileron Bearing assembly was taken apart. The IntegratedDynamics network reform walked the sub-level plot's bounding box, and a plot with no loaded chunk bounds reports the empty box, `Integer.MAX_VALUE` down to `Integer.MIN_VALUE` on every axis. Disassembly now reforms over the blocks that actually moved, and the box overload rejects empty and oversized regions (FTBTeam/FTB-Modpack-Issues#13285).
+- Server crash while exploring the Tropics (FTBTeam/FTB-Modpack-Issues#13302).
+
+## [21.1.55]
+
+### Fixed
+
+- Server crash on boot in pack 1.9.0 when a world contains Bits N' Bobs cogwheel chains (FTBTeam/FTB-Modpack-Issues#13332).
+
+## [21.1.54]
+
+### Fixed
+
+- Bits N' Bobs cogwheel chains duplicating again when an airship carrying them is assembled or disassembled (FTBTeam/FTB-Modpack-Issues#12709).
+
+## [21.1.53]
+
+### Added
+
+- Nether and End air pressure now hold steady from the floor to the build limit instead of thinning out to nothing near the top. An airship trimmed to fly level in the overworld keeps its lift when it comes through a portal, instead of arriving high up with a third of the lift it needs and sinking away into the void with nobody aboard to fly it back up. Flying near the top of either dimension now works the same as flying low in it.
+
+## [21.1.52]
+
+### Fixed
+
+- Hard crash with no crash report when a sub-level carrying a powered AE2 crafting CPU or several ME Controllers unloaded (FTBTeam/FTB-Modpack-Issues#13184, FTBTeam/FTB-Modpack-Issues#13250). Sable frees the rapier body before tearing down the plot but only marks the sub-level removed afterwards
+
+### Removed
+
+- Functional Storage drawer slot and Titanium locator sub-level mixins, now handled natively by Functional Storage: Create & Aero.
+
+## [21.1.51]
+
+### Fixed
+
+- Fixed Ae2 wireless sable terminal mixin
+
+## [21.1.50]
+
+### Fixed
+
+- Leaving a world hanging forever on "Saving worlds" when an airship was force-loaded by a Contraption Claim Block (FTBTeam/FTB-Modpack-Issues#13159, Leclowndu93150/Create-Aeronautics-FTB-Chunks#2).
+
+- Server crashing on load with an ars_sable NPE when an airship was force-loaded (FTBTeam/FTB-Modpack-Issues#13159, baileyholl/ars-sable#3).
+
+- Players teleported into airship storage space, around x/z 20,480,000, are now moved back onto the ship on dimension change, respawn or login (FTBTeam/FTB-Modpack-Issues#13176).
+
+- Framerate dropping to a crawl when viewing a JEI recipe with a large tag ingredient, such as the EnderIO Soul Vial, while an AE2 terminal is open (FTBTeam/FTB-Modpack-Issues#13169).
+
 ## [21.1.49]
 
 ### Fixed

@@ -1,5 +1,6 @@
 package dev.ftb.mods.ftbskies2aerocompanion.mixin.compat.sable;
 
+import dev.ftb.mods.ftbskies2aerocompanion.compat.sable.SubLevelPhysicsGuard;
 import dev.ryanhcode.sable.SableCommonEvents;
 import dev.ryanhcode.sable.api.sublevel.ServerSubLevelContainer;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
@@ -23,7 +24,7 @@ public abstract class SubLevelBlockChangeWakeMixin {
                 return;
             }
             SubLevelPhysicsSystem physics = container.physicsSystem();
-            if (physics != null) {
+            if (physics != null && !SubLevelPhysicsGuard.hasFreedBody(level, chunk.getPos(), physics.getPipeline())) {
                 physics.wakeUpObjectsAt(x, y, z);
             }
         } catch (Throwable ignored) {

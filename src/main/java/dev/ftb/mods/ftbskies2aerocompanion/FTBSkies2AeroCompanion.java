@@ -13,6 +13,7 @@ import dev.ftb.mods.ftbskies2aerocompanion.compat.arsnouveau.ShipSpellGuard;
 import dev.ftb.mods.ftbskies2aerocompanion.compat.createnewage.CnaAddon;
 import dev.ftb.mods.ftbskies2aerocompanion.compat.createnewage.CnaAddonConfig;
 import dev.ftb.mods.ftbskies2aerocompanion.compat.fishingoverhaul.FishingOverhaulVoidDelivery;
+import dev.ftb.mods.ftbskies2aerocompanion.compat.morered.MoreRedLinkConnector;
 import dev.ftb.mods.ftbskies2aerocompanion.compat.oritech.OritechCatalystConfig;
 import dev.ftb.mods.ftbskies2aerocompanion.item.ModItems;
 import dev.ftb.mods.ftbskies2aerocompanion.network.ModPayloads;
@@ -81,6 +82,10 @@ public class FTBSkies2AeroCompanion {
     private static void onCommonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(CreateIntegration::register);
         ShipSavedTeleportHooks.register();
+
+        if (ModList.get().isLoaded("morered") && ModList.get().isLoaded("create")) {
+            MoreRedLinkConnector.register();
+        }
     }
 
     private static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {

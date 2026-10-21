@@ -1,5 +1,6 @@
 package dev.ftb.mods.ftbskies2aerocompanion.compat.integrateddynamics;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -8,6 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import org.cyclops.integrateddynamics.core.helper.CableHelpers;
 import org.cyclops.integrateddynamics.core.helper.NetworkHelpers;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,7 +36,11 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public final class IntegratedDynamicsNetworkReform {
 
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     private static final int SETTLE_TICKS = 3;
+
+    private static final long MAX_REFORM_VOLUME = 4_194_304L;
 
     private static final class Deferred {
         private final ResourceKey<Level> dimension;
@@ -77,10 +83,19 @@ public final class IntegratedDynamicsNetworkReform {
     }
 
     public static void reform(ServerLevel level, BoundingBox box) {
-        List<BlockPos> positions = new ArrayList<>();
-        BlockPos.betweenClosed(box.minX(), box.minY(), box.minZ(), box.maxX(), box.maxY(), box.maxZ())
-                .forEach(pos -> positions.add(pos.immutable()));
-        reform(level, positions);
+        long sizeX = (long) box.maxX() - (long) box.minX() + 1L;
+        long sizeY = (long) box.maxY() - (long) box.minY() + 1L;
+        long sizeZ = (long) box.maxZ() - (long) box.minZ() + 1L;
+        if (sizeX <= 0L || sizeY <= 0L || sizeZ <= 0L) {
+            return;
+        }
+        long volume = sizeX * sizeY * sizeZ;
+        if (volume > MAX_REFORM_VOLUME) {
+            LOGGER.warn("Skipping IntegratedDynamics network reform over {} blocks in {}; region {} exceeds the {} block cap",
+                    volume, level.dimension().location(), box, MAX_REFORM_VOLUME);
+            return;
+        }
+        reform(level, BlockPos.betweenClosed(box.minX(), box.minY(), box.minZ(), box.maxX(), box.maxY(), box.maxZ()));
     }
 
     public static void recordDeferred(ServerLevel level, BoundingBox box) {
