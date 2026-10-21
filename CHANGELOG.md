@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Client crash ("Accessing LegacyRandomSource from multiple threads") when firing the Oritech Enderic Railgun. Its staggered laser particles were spawned from a background thread and are now spawned on the render thread (FTBTeam/FTB-Modpack-Issues#13546).
 
 ## [21.1.59]
 

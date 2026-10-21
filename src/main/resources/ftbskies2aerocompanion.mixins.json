@@ -94,6 +94,7 @@
   "client": [
     "client.FishingHookRendererMixin",
     "compat.createsifter.AbstractSifterRendererMeshFlatMixin",
+    "compat.oritech.ParticleContentStaggeredLineMixin",
     "compat.tropicraft.CocktailItemRendererMixin"
   ],
   "injectors": {
