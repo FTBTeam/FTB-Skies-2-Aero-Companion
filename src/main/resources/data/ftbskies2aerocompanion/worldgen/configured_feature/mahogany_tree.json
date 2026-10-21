@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "tropicraft:rainforest_up_tree",
+        "placement": []
+      },
+      {
+        "feature": "tropicraft:rainforest_small_tualung",
+        "placement": []
+      },
+      {
+        "feature": "tropicraft:rainforest_tall_tree",
+        "placement": []
+      }
+    ]
+  }
+}

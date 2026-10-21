@@ -75,6 +75,8 @@
     "compat.sable.RapierPipelineFreedBodyPoseMixin",
     "compat.sable.SubLevelPhysicsBlockChangeMixin",
     "compat.oritech.EnchantmentCatalystLevelCapMixin",
+    "compat.tropicraft.RainforestTreeMahoganyLeavesMixin",
+    "compat.tropicraft.TropicraftTreeGrowersMahoganyMixin",
     "compat.mi.MISteamHelperMixin",
     "compat.mi.MISteamHeaterComponentMixin",
     "compat.mi.MIBoilerMachineBlockEntityMixin",
