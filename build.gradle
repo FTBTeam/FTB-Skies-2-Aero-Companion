@@ -90,6 +90,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 // "optional", meaning it will not be pulled by dependents of this mod.
 configurations {
 	runtimeClasspath.extendsFrom localRuntime
+	cnaBundle
 }
 
 repositories {
@@ -118,14 +119,6 @@ repositories {
 		url = "https://maven.ryanhcode.dev/releases"
 		content { includeGroup "dev.ryanhcode.sable-companion" }
 	}
-
-	maven {
-		url = "https://maven.idiotss.com/releases"
-		content {
-			includeGroup "org.antarcticgardens.cna"
-			includeGroup "org.antarcticgardens.esl"
-		}
-	}
 }
 
 dependencies {
@@ -151,8 +144,9 @@ dependencies {
 	compileOnly "com.github.cech12.BucketLib:neoforge:${bucketlib_version}"
 	compileOnly "dev.ryanhcode.sable-companion:sable-companion-common-${minecraft_version}:${sable_companion_version}"
 
-	compileOnly("org.antarcticgardens.cna:create-new-age-neoforge-${minecraft_version}:${create_new_age_version}") { transitive = false }
-	compileOnly("org.antarcticgardens.esl:esl-neoforge-${minecraft_version}:${esl_version}") { transitive = false }
+	cnaBundle("maven.modrinth:create-new-age:${create_new_age_version}") { transitive = false }
+	compileOnly("maven.modrinth:create-new-age:${create_new_age_version}") { transitive = false }
+	compileOnly files(provider { zipTree(configurations.cnaBundle.singleFile).matching { include "META-INF/jars/esl-neoforge-*.jar" }.singleFile })
 
 	compileOnly "curse.maven:cyclops-core-232758:8006281"
 	compileOnly "curse.maven:integrated-dynamics-236307:8039124"
