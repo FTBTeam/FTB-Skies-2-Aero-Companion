@@ -90,6 +90,7 @@
     "compat.simulated.SimAssemblyHelperFrameFlagMixin",
     "compat.simulated.SimAssemblyHelperShipHomeMixin",
     "compat.simulated.RopeStrandConnectionDependencyMixin",
+    "compat.simulated.PortableEngineGoggleFuelNameMixin",
     "compat.simulatedcoasters.CoasterCartPlotScanPaletteSkipMixin",
     "compat.sophisticatedcore.ContentsPayloadSizeMixin",
     "compat.titanium.NetworkElementPlotGuardMixin"
