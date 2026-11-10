@@ -8,11 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [21.1.61]
 
 ### Fixed
+- Server lag from Create: Coasters Simulated that got worse the bigger your ships were. Every tick it read every block of every ship looking for coaster carts and rivets. It now skips any chunk section that can't contain one, so ships without carts cost next to nothing (FTBTeam/FTB-Modpack-Issues#13876).
+
+## [21.1.60]
+
+### Fixed
 
 - Client crash ("Accessing LegacyRandomSource from multiple threads") when firing the Oritech Enderic Railgun. Its staggered laser particles were spawned from a background thread and are now spawned on the render thread (FTBTeam/FTB-Modpack-Issues#13546).
 - Mahogany saplings growing into palm trees, and grown mahogany trees never dropping saplings. The sapling now only grows mahogany trees, and mahogany trees use mahogany leaves instead of kapok leaves (FTBTeam/FTB-Modpack-Issues#13318).
 - MoreRed red alloy wire not connecting to Create Redstone Links on the same face (FTBTeam/FTB-Modpack-Issues#13213).
-- Server lag from Create: Coasters Simulated that got worse the bigger your ships were. Every tick it read every block of every ship looking for coaster carts and rivets. It now skips any chunk section that can't contain one, so ships without carts cost next to nothing (FTBTeam/FTB-Modpack-Issues#13876).
 
 ## [21.1.59]
 
